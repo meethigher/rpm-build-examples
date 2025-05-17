@@ -1,0 +1,37 @@
+Name:           protobuf
+
+Version:        3.15.8
+
+Release:        1%{?dist}
+
+Summary:        protobuf (custom compiled)
+
+License:        GPL-2.0
+
+URL:            http://example.com
+
+Source0:        protobuf-3.15.8.tar.gz
+
+BuildRequires:  gcc,gcc-c++
+
+
+%description
+PostGIS extends the capabilities of the PostgreSQL relational database by adding support for storing, indexing, and querying geospatial data.
+
+%prep
+%setup -q -n protobuf-3.15.8
+
+%build
+./configure
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+make install DESTDIR=%{buildroot}
+
+%files
+/usr/local
+
+%changelog
+* Fri May 16 2025 root
+- Custom built protobuf-3.15.8
